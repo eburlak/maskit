@@ -10,7 +10,7 @@
     "build": "npm run build_app && npm run build_package"
   },
   "keywords": [],
-  "author": "Evgeniy Burlak <eugeneburlak@yandex.ru>",
+  "author": "Evgeniy Burlak <e.brlk@ya.ru>",
   "license": "MIT",
   "repository": {
     "type": "git",
