@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css?family=Muli:400,700,900&display=swap&subset=latin-ext');
+
+:root {
+  --theme: #7bdcb5;
+  --white: #fff;
+  --black: #000;
+  --grey: #eee;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Muli';
+  font-weight: 400;
+  background-color: var(--white);
+}
+
+body,
+html {
+  height: 100%;
+}
+
+.app__header {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app__header {
+  h1 {
+    margin: 0;
+  }
+}
+
+.app__link {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 15px;
+}
+
+.app__link svg {
+  fill: var(--black);
+}
+
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.code {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.form {
+  margin: 15px 0;
+}
+
+.form h2 {
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.form__fields {
+  background-color: var(--grey);
+  border-radius: 5px;
+  font-size: 0;
+}
+
+.form__field {
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
+  padding: 15px;
+}
+
+.form__field__title {
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.form__field__input input {
+  width: 100%;
+  padding: 10px 15px;
+  background-color: var(--white);
+  border-radius: 5px;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+}

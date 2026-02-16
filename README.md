@@ -1,11 +1,12 @@
-
 ## Maskit
 
 Demo:
-[burlakeugene.github.io/maskit](https://burlakeugene.github.io/maskit/)
+[eburlak.github.io/maskit](https://eburlak.github.io/maskit)
+
 ```
 npm i --save maskit
 ```
+
 ```
 0 - any number
 A - any char
@@ -23,13 +24,13 @@ In other cases mask will be waiting for same char
 document.querySelectorAll('input[data-maskit]').forEach((input, index) => {
   new Maskit(input, {
     mask: input.getAttribute('data-maskit'),
-    notFilledClear: true,
-    onFilled: scope => {},
-    offFilled: scope => {},
-    onBlur: scope => {},
-    onChange: scope => {},
-    onInit: scope => {}
-    beforeChange: ({scope, value}) => {}
+    resetOnBlurIfInvalid: true, // Clear field on blur if mask is not fully filled
+    onFilled: ({instance}) => {}, // Triggered when mask is completely filled
+    offFilled: ({instance}) => {}, // Triggered when mask is no longer completely filled
+    onBlur: ({instance}) => {}, // Triggered on input blur
+    onChange: ({instance}) => {}, // Triggered on every value change
+    onInit: ({instance}) => {}, // Triggered after mask initialization
+    beforeChange: ({instance, value}) => {}, // Called before mask is applied (for dynamic changes)
   });
 });
 ```

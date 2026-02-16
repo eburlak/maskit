@@ -1,24 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title><%= htmlWebpackPlugin.options.title %></title>
-    <script>
-      const APP_CONFIG = JSON.parse(
-        '<%= htmlWebpackPlugin.options.APP_CONFIG %>'
-      );
-    </script>
   </head>
 
   <body>
     <div class="app">
-      <div class="app-header">
-        <div class="app-title">
+      <div class="app__header">
+        <div class="app__title">
           <h1>Maskit</h1>
         </div>
-        <div class="app-links">
+        <div class="app__links">
           <a
             class="app-link"
             href="https://github.com/burlakeugene/maskit"
@@ -52,36 +47,32 @@
         </div>
       </div>
       <div class="container">
-        <div class="app-form">
-          <div class="form-header">
-            <div class="form-title">
+        <div class="form">
+          <div class="form__header">
+            <div class="form__title">
               <h2>Demo form</h2>
             </div>
           </div>
-          <div class="form-fields">
-            <div class="form-field">
+          <div class="form__fields">
+            <div class="form__field">
               <label>
-                <div class="form-field-title">
-                  Mask:
-                </div>
-                <div class="form-field-input">
+                <div class="form__field__title">Mask:</div>
+                <div class="form__field__input">
                   <input value="0 (000) 000-00-00" type="text" id="mask" />
                 </div>
               </label>
             </div>
-            <div class="form-field">
+            <div class="form__field">
               <label>
-                <div class="form-field-title">
-                  Result:
-                </div>
-                <div class="form-field-input">
+                <div class="form__field__title">Result:</div>
+                <div class="form__field__input">
                   <input type="text" id="result" />
                 </div>
               </label>
             </div>
           </div>
         </div>
-        <div class="app-code">
+        <div class="app__code">
           <pre>
             <code class="code javascript">
               // 0 any number
@@ -90,26 +81,24 @@
               // ?+-()[]{}.,\\/-=_~`|'" autofilled chars
 
               // also you can wrap any symbol in brackets "{someChar}",
-              // and it will be autofilled In other cases mask will be
-              // waiting for same char
+              // and it will be autofilled, in other cases mask will be waiting for same char
 
               // Usage:
-
               //npm i --save 'maskit'
 
               import Maskit from 'maskit';
 
-              let input = document.querySelector('input.masked'),
-                mask = new Maskit(input, {
-                  mask: '<span class="mask-value"></span>',
-                  notFilledClear: true, // clear input on leave the focus if mask is not filled
-                  onFilled: scope => {}, // starts when mask is filled
-                  offFilled: scope => {}, // starts when mask is not filled
-                  onBlur: scope => {}, // starts when input has left the focus
-                  beforeChange: ({scope, value}) => {} // run before change flow, to set dynamic mask, etc.
-                  onChange: scope => {} // starts when input is changed
-                  onInit: scope => {} // starts when mask initialize
-                });
+              let input = document.querySelector('input.masked');
+              let mask = new Maskit(input, {
+                mask: '<span class="mask-value"></span>',
+                resetOnBlurIfInvalid: true, // Clear field on blur if mask is not fully filled
+                onFilled: ({instance}) => {}, // Triggered when mask is completely filled
+                offFilled: ({instance}) => {}, // Triggered when mask is no longer completely filled
+                onBlur: ({instance}) => {}, // Triggered on input blur
+                onChange: ({instance}) => {}, // Triggered on every value change
+                onInit: ({instance}) => {}, // Triggered after mask initialization
+                beforeChange: ({instance, value}) => {}, // Called before mask is applied (for dynamic changes)
+              });
               // if you need to change mask of input
               // mask.setMask(newMask);
             </code>
